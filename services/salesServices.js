@@ -19,6 +19,8 @@ const createSale = async (soldProducts) => {
   return saleInfo;
 };
 
+// const updateSale = async (saleInfo) =>
+
 module.exports = {
   getAll,
   getById,
