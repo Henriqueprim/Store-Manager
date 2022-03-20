@@ -6,7 +6,7 @@ const getAll = async (_req, res, next) => {
     return res.status(200).json(allSales);
   } catch (error) {
     console.log(error);
-    next(error);
+    return next(error);
   }
 };
 
@@ -20,7 +20,7 @@ const getById = async (req, res, next) => {
     return res.status(200).json(sale);
   } catch (error) {
     console.log(error);
-    next(error);
+    return next(error);
   }
 };
 
