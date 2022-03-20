@@ -18,7 +18,7 @@ s.date,
 sp.product_id AS productId,
 sp.quantity
 FROM
-sales_products sp
+StoreManager.sales_products sp
 INNER JOIN
 sales AS s ON s.id = sp.sale_id
 WHERE sp.sale_id = ?
