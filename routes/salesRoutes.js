@@ -13,6 +13,6 @@ router.get('/', salesController.getAll);
 
 router.get('/:id', salesController.getById);
 
-// router.post('/', null);
+router.post('/', salesController.createSale);
 
 module.exports = router;

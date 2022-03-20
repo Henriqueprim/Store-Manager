@@ -24,7 +24,19 @@ const getById = async (req, res, next) => {
   }
 };
 
+const createSale = async (req, res, next) => {
+  try {
+    const soldProducts = req.body; // não é desconstruído pq vai mais de um valor
+    const saleInfo = await salesServices.createSale(soldProducts);
+    return res.status(201).json(saleInfo);
+  } catch (error) {
+    console.log(error);
+    return next(error);
+  }
+};
+
 module.exports = {
   getAll,
   getById,
+  createSale,
 };
