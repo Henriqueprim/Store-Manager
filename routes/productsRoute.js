@@ -8,6 +8,12 @@ const postValidations = [
   middlewares.productExistence,
 ];
 
+const putValidations = [
+  middlewares.productIdValidation,
+  middlewares.nameValidation,
+  middlewares.quantityValidation,
+];
+
 const router = express.Router();
 
 router.get('/', productsController.getAll);
@@ -15,5 +21,7 @@ router.get('/', productsController.getAll);
 router.get('/:id', productsController.getById);
 
 router.post('/', postValidations, productsController.createProduct);
+
+router.put('/:id', putValidations, productsController.updateProduct);
 
 module.exports = router;
