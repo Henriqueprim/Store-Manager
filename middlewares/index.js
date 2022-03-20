@@ -1,7 +1,7 @@
 const errorMiddleware = require('./ErrorMiddleware');
 const nameValidation = require('./nameValidation');
 const quantityValidation = require('./quantityValidation');
-// const productIdValidation = require('./productIdValidations');
+const saleIdValidation = require('./saleExistence');
 const { productExistence, productIdValidation } = require('./productExistence');
 
 module.exports = {
@@ -10,4 +10,5 @@ module.exports = {
   quantityValidation,
   productIdValidation,
   productExistence,
+  saleIdValidation,
 };

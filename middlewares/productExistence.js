@@ -28,13 +28,13 @@ const productIdValidation = async (req, res, next) => {
 
 const productIdInSales = async (req, res, next) => {
   try {
-    console.log(req.body);
+    // console.log(req.body);
     const { productId } = req.body[0];
-    console.log(productId);
+    // console.log(productId);
     const productsList = await productsServices.getAll();
-    console.log(productsList);
+    // console.log(productsList);
     const exists = productsList.some((prod) => prod.id === Number(productId));
-    console.log(exists);
+    // console.log(exists);
     if (!exists) return res.status(404).json({ message: 'Product not found' });
     return next();
   } catch (error) {

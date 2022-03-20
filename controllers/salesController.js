@@ -38,10 +38,22 @@ const createSale = async (req, res, next) => {
 const updateSale = async (req, res, next) => {
   try {
     const { id } = req.params;
-    const { productId, quantity } = req.body[0];
+    const { productId, quantity } = req.body[0]; // tem que passar posição pq vem um array de obj, se não der a posição ele não consegue ler as infos.
     const updatedSale = await salesServices.updateSale(id, productId, quantity);
     if (updatedSale === null) return res.status(404).json({ message: 'Sale not found' });
     return res.status(200).json({ saleId: id, itemUpdated: [{ productId, quantity }] });
+  } catch (error) {
+    console.log(error);
+    return next(error);
+  }
+};
+
+const deleteSale = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const deleted = await salesServices.deleteSale(id);
+    console.log(deleted);
+    return res.status(204).end();
   } catch (error) {
     console.log(error);
     return next(error);
@@ -53,4 +65,5 @@ module.exports = {
   getById,
   createSale,
   updateSale,
+  deleteSale,
 };
