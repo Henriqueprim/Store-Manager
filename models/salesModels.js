@@ -14,14 +14,14 @@ ORDER BY
 productId;`;
 
 const getByIdQuery = `SELECT
-s.date,
-sp.product_id AS productId,
-sp.quantity
+S.date,
+SP.product_id AS productId,
+SP.quantity
 FROM
-StoreManager.sales_products sp
-INNER JOIN
-sales AS s ON s.id = sp.sale_id
-WHERE sp.sale_id = ?
+StoreManager.sales_products AS SP
+JOIN
+sales AS S ON S.id = SP.sale_id
+WHERE SP.sale_id = ?
 ORDER BY
 productId`;
 
