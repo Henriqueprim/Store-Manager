@@ -1,3 +1,5 @@
+const productService = require('../services/productsServices');
+
 const quantityObj = (req, res, next) => {
   try {
     console.log(req.body);
@@ -27,7 +29,22 @@ const quantityArr = (req, res, next) => {
   }
 };
 
+const quantityInStock = async (req, res, next) => {
+  try {
+    const { productId, quantity } = req.body[0];
+    const product = await productService.getById(productId);
+    if (product.quantity < quantity) {
+      return res.status(422).json({ message: 'Such amount is not permitted to sell' });
+    }
+    return next();
+  } catch (error) {
+    console.log(error);
+    return next(error);
+  }
+};
+
 module.exports = {
   quantityObj,
   quantityArr,
+  quantityInStock,
 };

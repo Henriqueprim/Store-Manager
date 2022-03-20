@@ -2,13 +2,14 @@ const express = require('express');
 const salesController = require('../controllers/salesController');
 const middlewares = require('../middlewares');
 const { productIdInSales } = require('../middlewares/productExistence');
-const { quantityArr } = require('../middlewares/quantityValidation');
+const { quantityArr, quantityInStock } = require('../middlewares/quantityValidation');
 
 const router = express.Router();
 
 const postValidations = [
   middlewares.productIdExistence,
   quantityArr,
+  quantityInStock,
 ];
 
 const putValidations = [
