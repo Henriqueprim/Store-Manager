@@ -1,17 +1,18 @@
 const express = require('express');
 const productsController = require('../controllers/productsController');
 const middlewares = require('../middlewares');
+const { quantityObj } = require('../middlewares/quantityValidation');
 
 const postValidations = [
   middlewares.nameValidation,
-  middlewares.quantityValidation,
+  quantityObj,
   middlewares.productExistence,
 ];
 
 const putValidations = [
   middlewares.productIdValidation,
   middlewares.nameValidation,
-  middlewares.quantityValidation,
+  quantityObj,
 ];
 
 const router = express.Router();

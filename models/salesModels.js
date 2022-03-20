@@ -26,27 +26,32 @@ ORDER BY
 productId`;
 
 const getAll = async () => {
+  console.log('sale1');
   const [sales] = await connection.execute(getAllQuery);
   return sales;
 };
 
 const getById = async (id) => {
+  console.log('sale2');
   const [sale] = await connection.execute(getByIdQuery, [id]);
   return sale;
 };
 
 const createSale = async () => {
+  console.log('sale3');
   const [sale] = await connection.execute('INSERT INTO StoreManager.sales SET date = (NOW());');
   return sale;
 };
 
 const createProductSale = async (saleId, product, quantity) => {
+  console.log(saleId, product, quantity);
   const [productSale] = await connection.execute(`INSERT INTO StoreManager.sales_products
   (sale_id, product_id, quantity) VALUES (?, ?, ?);`, [saleId, product, quantity]);
   return productSale;
 };
 
 const updateSale = async (saleId, productId, quantity) => {
+  console.log('s6');
   const [updatedSale] = await connection.execute(`UPDATE StoreManager.sales_products
   SET product_id = ?, quantity = ?
   WHERE sale_id = ?;`, [productId, quantity, saleId]);
@@ -54,6 +59,7 @@ const updateSale = async (saleId, productId, quantity) => {
 };
 
 const deleteSale = async (saleId) => {
+  console.log('asdasdas7');
   const [deletedSale] = await connection.execute(`DELETE FROM StoreManager.sales 
   WHERE id = ?`, [saleId]);
   return deletedSale;
