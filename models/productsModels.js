@@ -24,18 +24,18 @@ const createProduct = async (name, quantity) => {
 };
 
 const updateProduct = async (id, name, quantity) => {
-  console.log('dasdas');
   const query = `UPDATE StoreManager.products
   SET name = ?, quantity = ?
   WHERE id = ?`;
   const [updatedProduct] = await connection.execute(query, [name, quantity, id]);
+  console.log(updatedProduct);
   return updatedProduct;
 };
 
 const deleteProduct = async (id) => {
-  console.log('psadaso');
   const [response] = await connection.execute(`DELETE FROM StoreManager.products 
   WHERE id = ?;`, [id]);
+  console.log(response);
   return response;
 };
 
