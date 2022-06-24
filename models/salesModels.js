@@ -27,12 +27,10 @@ productId`;
 
 const getAll = async () => {
   const [sales] = await connection.execute(getAllQuery);
-  // console.log(sales);
   return sales;
 };
 
 const getById = async (id) => {
-  // console.log('sale2');
   const [sale] = await connection.execute(getByIdQuery, [id]);
   return sale;
 };
@@ -44,7 +42,6 @@ const createSale = async () => {
 };
 
 const createProductSale = async (saleId, product, quantity) => {
-  // console.log(saleId, product, quantity);
   const [productSale] = await connection.execute(`INSERT INTO StoreManager.sales_products
   (sale_id, product_id, quantity) VALUES (?, ?, ?);`, [saleId, product, quantity]);
   return productSale;

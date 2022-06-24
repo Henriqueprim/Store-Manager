@@ -26,7 +26,6 @@ const getById = async (req, res, next) => {
 
 const createProduct = async (req, res, next) => {
   try {
-    console.log(req.body);
     const { name, quantity } = req.body;
     const newProduct = await productsServices.createProduct(name, quantity);
     return res.status(201).json(newProduct);
@@ -41,7 +40,6 @@ const updateProduct = async (req, res, next) => {
     const { id } = req.params;
     const { name, quantity } = req.body;
     const updatedProduct = await productsServices.updateProduct(id, name, quantity);
-    // if (updatedProduct === null) return res.status(404).json({ message: 'Product not found' });
     return res.status(200).json(updatedProduct);
   } catch (error) {
     console.log(error);

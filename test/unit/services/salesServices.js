@@ -88,14 +88,5 @@ describe('SALES SERVICES TESTS', () => {
       const result = await salesServices.getById(id);
       expect(result[0]).to.be.equal(fakeSales[0]);
     });
-    // it('É retornado um array com um único produto', async () => {
-    //   const result = await productService.getById(id);
-    //   expect(result).to.be.an('array');
-    //   expect(result).to.have.length(1);
-    // });
-    // it('É retornado um array com um objeto', async () => {
-    //   const result = await productService.getById(id);
-    //   expect(result[0]).to.be.an('object');
-    // });
   });
 });

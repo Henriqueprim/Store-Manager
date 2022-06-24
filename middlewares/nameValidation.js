@@ -1,7 +1,6 @@
 module.exports = (req, res, next) => {
   try {
     const { name } = req.body;
-    console.log(name);
     const MIN_NAME = 5;
 
     if (!name) return res.status(400).json({ message: '"name" is required' });

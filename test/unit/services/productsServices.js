@@ -51,7 +51,6 @@ describe('PRODUCTS SERVICES TESTS', () => {
       it('É retornado uma array que contém objetos com as keys "id", "name" e "quantity"', async () => {
         const result = await productService.getAll();
         expect(result[0]).to.include.all.keys('id', 'name', 'quantity');
-        // expect(result.data[1]).to.include.all.keys('id', 'name', 'quantity');
       });
     });
   });
@@ -71,14 +70,5 @@ describe('PRODUCTS SERVICES TESTS', () => {
       const result = await productService.getById(id);
       expect(result).to.be.equal(fakeProducts[0]);
     });
-    // it('É retornado um array com um único produto', async () => {
-    //   const result = await productService.getById(id);
-    //   expect(result).to.be.an('array');
-    //   expect(result).to.have.length(1);
-    // });
-    // it('É retornado um array com um objeto', async () => {
-    //   const result = await productService.getById(id);
-    //   expect(result[0]).to.be.an('object');
-    // });
   });
 });

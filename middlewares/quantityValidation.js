@@ -2,7 +2,6 @@ const productService = require('../services/productsServices');
 
 const quantityObj = (req, res, next) => {
   try {
-    console.log(req.body);
     const { quantity } = req.body;
     if (quantity == null) return res.status(400).json({ message: '"quantity" is required' });
     if (Number(quantity) <= 0) {
